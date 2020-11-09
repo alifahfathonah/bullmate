@@ -1,0 +1,8 @@
+[18-Feb-2020 22:21:16 America/Chicago] PHP Fatal error:  session_start(): Failed to initialize storage module: user (path: ci_sessions) in /home1/bullmate/public_html/academy/system/libraries/Session/Session.php on line 143
+[22-Jul-2020 04:12:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function row() on boolean in /home1/bullmate/public_html/academy/system/libraries/Session/drivers/Session_database_driver.php:425
+Stack trace:
+#0 /home1/bullmate/public_html/academy/system/libraries/Session/drivers/Session_database_driver.php(282): CI_Session_database_driver->_release_lock()
+#1 [internal function]: CI_Session_database_driver->close()
+#2 [internal function]: session_write_close()
+#3 {main}
+  thrown in /home1/bullmate/public_html/academy/system/libraries/Session/drivers/Session_database_driver.php on line 425
