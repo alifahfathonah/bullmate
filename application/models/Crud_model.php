@@ -945,6 +945,10 @@ class Crud_model extends CI_Model {
     $this->db->where('key', 'about_us');
     $this->db->update('frontend_settings', $data);
 
+      $data['value'] = $this->input->post('terms');
+      $this->db->where('key', 'terms');
+      $this->db->update('frontend_settings', $data);
+
     $data['value'] = $this->input->post('terms_and_condition');
     $this->db->where('key', 'terms_and_condition');
     $this->db->update('frontend_settings', $data);
@@ -956,6 +960,10 @@ class Crud_model extends CI_Model {
     $data['value'] = $this->input->post('privacy_policy');
     $this->db->where('key', 'privacy_policy');
     $this->db->update('frontend_settings', $data);
+
+      $data['value'] = $this->input->post('refund_policy');
+      $this->db->where('key', 'refund_policy');
+      $this->db->update('frontend_settings', $data);
   }
 
   public function update_frontend_banner() {
@@ -1804,5 +1812,15 @@ class Crud_model extends CI_Model {
         $this->db->where('id', $user_id);
         $this->db->update('users', $data);
         return $progress;
+      }
+      //umarmajeed.com created this function to get two top lessions
+      public function get_top_two_free_cources($course_id){
+            $this->db->where('course_id',$course_id);
+            $this->db->select('id');
+            $this->db->from('lesson');
+            $this->db->limit(2, 0);
+            $result= $this->db->order_by("id", "asc")->get()->result_array();
+            return $result=array_column($result, 'id');
+            print_r($result);
       }
     }

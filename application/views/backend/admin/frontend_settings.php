@@ -31,6 +31,10 @@
                         <textarea name="about_us" id = "about_us" class="form-control" rows="5"><?php echo get_frontend_settings('about_us'); ?></textarea>
                     </div>
                     <div class="form-group">
+                        <label for="terms"><?php echo get_phrase('terms'); ?></label>
+                        <textarea name="terms" id ="terms" class="form-control" rows="5"><?php echo get_frontend_settings('terms'); ?></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="terms_and_condition"><?php echo get_phrase('terms_and_condition'); ?></label>
                         <textarea name="terms_and_condition" id ="terms_and_condition" class="form-control" rows="5"><?php echo get_frontend_settings('terms_and_condition'); ?></textarea>
                     </div>
@@ -41,6 +45,9 @@
                     <div class="form-group">
                         <label for="privacy_policy"><?php echo get_phrase('privacy_policy'); ?></label>
                         <textarea name="privacy_policy" id = "privacy_policy" class="form-control" rows="5"><?php echo get_frontend_settings('privacy_policy'); ?></textarea>
+                    </div>  <div class="form-group">
+                        <label for="refund_policy"><?php echo 'Refund Policy' ?></label>
+                        <textarea name="refund_policy" id = "refund_policy" class="form-control" rows="5"><?php echo get_frontend_settings('refund_policy'); ?></textarea>
                     </div>
 
                     <div class="row justify-content-center">
@@ -192,6 +199,6 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
-    initSummerNote(['#about_us', '#terms_and_condition','#instructor_terms', '#privacy_policy']);
+    initSummerNote(['#about_us', '#terms_and_condition','#instructor_terms', '#privacy_policy','#refund_policy','#terms']);
   });
 </script>

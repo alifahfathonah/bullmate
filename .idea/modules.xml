@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bullmate.iml" filepath="$PROJECT_DIR$/.idea/bullmate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lansapi/.idea/lansapi.iml" filepath="$PROJECT_DIR$/../lansapi/.idea/lansapi.iml" />
     </modules>
   </component>
 </project>

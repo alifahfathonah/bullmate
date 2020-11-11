@@ -1,4 +1,10 @@
-<div class="col-lg-9  order-md-1 course_col" id = "video_player_area">
+ <?php if(isset($is_preview)){ 
+     $class="";
+ }else{
+     $class="col-lg-9  order-md-1 course_col";
+ }
+?>
+<div class="<?=$class?>" id = "video_player_area">
   <!-- <div class="" style="background-color: #333;"> -->
   <div class="" style="text-align: center;">
     <?php
@@ -69,7 +75,7 @@
           </div>
         <?php endif; ?>
       </div>
-
+  <?php if(!isset($is_preview)){ ?>
       <div class="" style="margin: 20px 0;" id = "lesson-summary">
         <div class="card">
           <div class="card-body">
@@ -83,3 +89,4 @@
         </div>
       </div>
     </div>
+  <?php } ?>

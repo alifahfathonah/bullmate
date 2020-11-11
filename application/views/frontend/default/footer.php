@@ -16,7 +16,10 @@
                                 <a class="nav-link" href="<?php echo site_url('home/privacy_policy'); ?>"><?php echo get_phrase('privacy_policy'); ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo site_url('home/terms_and_condition'); ?>"><?php echo get_phrase('terms_&_condition'); ?></a>
+                                <a class="nav-link" href="<?php echo site_url('home/refund_policy'); ?>"><?php echo 'Refund Policy'; ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo site_url('home/terms'); ?>"><?php echo 'Terms' ?></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/login'); ?>">
