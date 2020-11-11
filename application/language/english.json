@@ -807,5 +807,11 @@
     "student_add": "Student add",
     "student_add_form": "Student add form",
     "user_added_successfully": "User added successfully",
-    "terms": "Terms"
+    "terms": "Terms",
+    "forum": "Forum",
+    "search_questions": "Search questions",
+    "questions_in_this_course": "Questions in this course",
+    "ask_a_new_question": "Ask a new question",
+    "your_question_has_been_successfully_published": "Your question has been successfully published",
+    "please_write_your_question_title_or_summary": "Please write your question title or summary"
 }

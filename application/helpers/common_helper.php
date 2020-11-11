@@ -19,7 +19,7 @@ if (! function_exists('get_settings')) {
         $CI->load->database();
 
         $CI->db->where('key', $key);
-        $result = $CI->db->get('settings')->row()->value;
+        $result = $CI->db->get('settings')->row('value');
         return $result;
     }
 }
@@ -141,8 +141,7 @@ if ( ! function_exists('themeConfiguration'))
 }
 
 // Human readable time
-if ( ! function_exists('readable_time_for_humans'))
-{
+if ( ! function_exists('readable_time_for_humans')){
     function readable_time_for_humans($duration) {
         if ($duration) {
             $duration_array = explode(':', $duration);
@@ -184,27 +183,31 @@ if ( ! function_exists('trimmer'))
 
 if ( ! function_exists('lesson_progress'))
 {
-    function lesson_progress($lesson_id) {
+    function lesson_progress($lesson_id = "", $user_id = "") {
         $CI	=&	get_instance();
         $CI->load->database();
-        $user_id = $CI->session->userdata('user_id');
+        if ($user_id == "") {
+            $user_id = $CI->session->userdata('user_id');
+        }
         $user_details = $CI->user_model->get_all_user($user_id)->row_array();
         $watch_history_array = json_decode($user_details['watch_history'], true);
         for ($i = 0; $i < count($watch_history_array); $i++) {
-          $watch_history_for_each_lesson = $watch_history_array[$i];
-          if ($watch_history_for_each_lesson['lesson_id'] == $lesson_id) {
-              return $watch_history_for_each_lesson['progress'];
-          }
+            $watch_history_for_each_lesson = $watch_history_array[$i];
+            if ($watch_history_for_each_lesson['lesson_id'] == $lesson_id) {
+                return $watch_history_for_each_lesson['progress'];
+            }
         }
         return 0;
     }
 }
 if ( ! function_exists('course_progress'))
 {
-    function course_progress($course_id) {
+    function course_progress($course_id = "", $user_id = "") {
         $CI	=&	get_instance();
         $CI->load->database();
-        $user_id = $CI->session->userdata('user_id');
+        if ($user_id == "") {
+            $user_id = $CI->session->userdata('user_id');
+        }
         $user_details = $CI->user_model->get_all_user($user_id)->row_array();
 
         // this array will contain all the completed lessons from different different courses by a user
@@ -221,32 +224,95 @@ if ( ! function_exists('course_progress'))
         $total_number_of_lessons = $lessons_for_that_course->num_rows();
         // arranging completed lesson ids
         for ($i = 0; $i < count($watch_history_array); $i++) {
-          $watch_history_for_each_lesson = $watch_history_array[$i];
-          if ($watch_history_for_each_lesson['progress'] == 1) {
-              array_push($completed_lessons_ids, $watch_history_for_each_lesson['lesson_id']);
-          }
+            $watch_history_for_each_lesson = $watch_history_array[$i];
+            if ($watch_history_for_each_lesson['progress'] == 1) {
+                array_push($completed_lessons_ids, $watch_history_for_each_lesson['lesson_id']);
+            }
         }
 
         foreach ($lessons_for_that_course->result_array() as $row) {
-          if (in_array($row['id'], $completed_lessons_ids)) {
-              $lesson_completed++;
-          }
+            if (in_array($row['id'], $completed_lessons_ids)) {
+                $lesson_completed++;
+            }
         }
 
-        // calculate the percantage of progress
-        $course_progress = ($lesson_completed / $total_number_of_lessons) * 100;
-        return $course_progress;
+        if ($lesson_completed > 0 && $total_number_of_lessons > 0) {
+            // calculate the percantage of progress
+            $course_progress = ($lesson_completed / $total_number_of_lessons) * 100;
+            return $course_progress;
+        }else{
+            return 0;
+        }
+
     }
 }
 
-function dd($var,$a=false)
-{
-      echo "<pre>";
-      print_r($var);
-      echo "</pre>";
-      if($a)exit;
+// RANDOM NUMBER GENERATOR FOR ELSEWHERE
+if (! function_exists('random')) {
+    function random($length_of_string) {
+        // String of all alphanumeric character
+        $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+        // Shufle the $str_result and returns substring
+        // of specified length
+        return substr(str_shuffle($str_result), 0, $length_of_string);
+    }
 }
 
+// RANDOM NUMBER GENERATOR FOR ELSEWHERE
+if (! function_exists('phpFileUploadErrors')) {
+    function phpFileUploadErrors($error_code) {
+        $phpFileUploadErrorsArray = array(
+            0 => 'There is no error, the file uploaded with success',
+            1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+            2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+            3 => 'The uploaded file was only partially uploaded',
+            4 => 'No file was uploaded',
+            6 => 'Missing a temporary folder',
+            7 => 'Failed to write file to disk.',
+            8 => 'A PHP extension stopped the file upload.',
+        );
+        return $phpFileUploadErrorsArray[$error_code];
+    }
+}
+
+
+// course bundle subscription data
+if (! function_exists('get_bundle_validity')) {
+    function get_bundle_validity($bundle_id = "", $user_id = "") {
+        $CI =&  get_instance();
+        $CI->load->database();
+        if($user_id == "") {
+            $user_id = $CI->session->userdata('user_id');
+        }
+        $today = strtotime(date('d M Y'));
+
+        $course_bundle = $CI->db->get_where('course_bundle', array('id' => $bundle_id))->row_array();
+
+        $CI->db->limit(1);
+        $CI->db->order_by('id', 'desc');
+        $bundle_payment = $CI->db->get_where('bundle_payment', array('bundle_id' => $bundle_id, 'user_id' => $user_id));
+
+        //convert day to seconds
+        $subscription_limit_timestamp = $course_bundle['subscription_limit']*86400;
+
+        $max_valid_date = $bundle_payment->row_array()['date_added'] + $subscription_limit_timestamp;
+        if($bundle_payment->num_rows() > 0){
+            if($today <= $max_valid_date){
+                //validate
+                return 'valid';
+            }else{
+                //expire
+                return 'expire';
+            }
+        }else{
+            return 'invalid';
+        }
+    }
+}
+
+
+
 // ------------------------------------------------------------------------
-/* End of file user_helper.php */
+/* End of file common_helper.php */
 /* Location: ./system/helpers/common.php */

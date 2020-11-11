@@ -19,36 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7c3a3c3-8caf-4a8b-b81e-a0be90c9c559" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/application/controllers/addons/Course_forum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/addons/Course_forum_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/frontend/default/refund_policy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/frontend/default/terms.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/lessons/add_new_question_form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/lessons/course_forum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/lessons/course_forum_scripts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/lessons/question_comments.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/lessons/show_more_questions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/._config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/._controllers" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/._helpers" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/._models" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/._sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/._views" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/controllers/addons/._Course_forum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/models/addons/._Course_forum_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/sql/._updater.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/addons/__MACOSX/course-forum/views/._lessons" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bullmate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bullmate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+    <list default="true" id="a7c3a3c3-8caf-4a8b-b81e-a0be90c9c559" name="Default Changelist" comment="after preview changes and forum addons added">
+      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/common_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/common_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/multi_language_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/multi_language_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/backend/admin/frontend_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/backend/admin/frontend_settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/frontend/default/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/frontend/default/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/lessons/lessons.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/lessons/lessons.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lansapi/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/public/frontend/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/public/frontend/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/routes/web.php" afterDir="false" />
@@ -111,6 +89,7 @@
       <workItem from="1604917023368" duration="23000" />
       <workItem from="1604929288147" duration="4511000" />
       <workItem from="1605024915291" duration="1386000" />
+      <workItem from="1605134460653" duration="696000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1604914832597</created>
@@ -119,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604914832598</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="after preview changes and forum addons added">
+      <created>1605134544067</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605134544067</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +126,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="after preview changes and forum addons added" />
+    <option name="LAST_COMMIT_MESSAGE" value="after preview changes and forum addons added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Deployment" timestamp="1604908188942">
@@ -159,10 +146,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604916442575" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604914941957">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605134557673">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604914941957" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605134557673" />
     <state x="389" y="0" width="587" height="728" key="find.popup" timestamp="1604929940640">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
