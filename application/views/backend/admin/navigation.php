@@ -60,6 +60,12 @@
 					<span><?php echo get_phrase('instructors'); ?></span>
 				</a>
 			</li>
+                        <li class="side-nav-item">
+				<a href="<?php echo site_url('admin/blogs'); ?>" class="side-nav-link <?php if ($page_name == 'blogs' || $page_name == 'blog_add' || $page_name == 'blog_edit')echo 'active';?>">
+					<i class="dripicons-user-group"></i>
+					<span><?php echo get_phrase('blogs'); ?></span>
+				</a>
+			</li>
 			<li class="side-nav-item <?php if ($page_name == 'enrol_history' || $page_name == 'enrol_student'): ?> active <?php endif; ?>">
 				<a href="javascript: void(0);" class="side-nav-link <?php if ($page_name == 'enrol_history' || $page_name == 'enrol_student'): ?> active <?php endif; ?>">
 					<i class="dripicons-network-3"></i>

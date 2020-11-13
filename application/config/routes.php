@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/page_not_found';
 $route['certificate/(:any)']		= "addons/certificate/generate_certificate/$1";
-
+// blog
+$route['blog'] = 'BlogController';
+$route['blog/detail/(:num)/(:any)'] = 'BlogController/detail/$1/$2';
 //course bundles
 $route['course_bundles/(:any)']								= "addons/course_bundles/index/$1";
 $route['course_bundles']									= "addons/course_bundles";

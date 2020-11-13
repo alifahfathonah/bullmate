@@ -813,5 +813,22 @@
     "questions_in_this_course": "Questions in this course",
     "ask_a_new_question": "Ask a new question",
     "your_question_has_been_successfully_published": "Your question has been successfully published",
-    "please_write_your_question_title_or_summary": "Please write your question title or summary"
+    "please_write_your_question_title_or_summary": "Please write your question title or summary",
+    "back_to_all_questions": "Back to all questions",
+    "ask_your_question": "Ask your question",
+    "title_or_summary": "Title or summary",
+    "details": "Details",
+    "reply": "Reply",
+    "write_a_reply": "Write a reply",
+    "publish_reply": "Publish reply",
+    "blog": "Blog",
+    "blogs": "Blogs",
+    "add_blog": "Add blog",
+    "blog_add": "Blog add",
+    "blog_add_form": "Blog add form",
+    "blog_added_successfully": "Blog added successfully",
+    "blog_edit": "Blog edit",
+    "blog_edit_form": "Blog edit form",
+    "blog_update_successfully": "Blog update successfully",
+    "blog_deleted_successfully": "Blog deleted successfully"
 }

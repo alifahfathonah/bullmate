@@ -158,7 +158,46 @@ class Admin extends CI_Controller
         }
     }
 
+     public function blogs($param1 = "", $param2 = "")
+    {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+        if ($param1 == "add") {
+            $this->blog_model->add_blog();
+            redirect(site_url('admin/blogs'), 'refresh');
+        } elseif ($param1 == "edit") {
+            $this->blog_model->edit_blog($param2);
+            redirect(site_url('admin/blogs'), 'refresh');
+        } elseif ($param1 == "delete") {
+            $this->blog_model->delete_blog($param2);
+            redirect(site_url('admin/blogs'), 'refresh');
+        }
 
+        $page_data['page_name'] = 'blogs';
+        $page_data['page_title'] = get_phrase('blogs');
+        $page_data['blogs'] = $this->blog_model->get_blog($param2);
+        $this->load->view('backend/index', $page_data);
+    }
+
+    public function blog_form($param1 = "", $param2 = "")
+    {
+        if ($this->session->userdata('admin_login') != true) {
+            redirect(site_url('login'), 'refresh');
+        }
+
+        if ($param1 == 'add_blog_form') {
+            $page_data['page_name'] = 'blog_add';
+            $page_data['page_title'] = get_phrase('blog_add');
+            $this->load->view('backend/index', $page_data);
+        } elseif ($param1 == 'edit_blog_form') {
+            $page_data['page_name'] = 'blog_edit';
+            $page_data['blog_id'] = $param2;
+            $page_data['page_title'] = get_phrase('blog_edit');
+            $this->load->view('backend/index', $page_data);
+        }
+    }
+    
     public function instructors($param1 = "", $param2 = "")
     {
         if ($this->session->userdata('admin_login') != true) {

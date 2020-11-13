@@ -19,13 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7c3a3c3-8caf-4a8b-b81e-a0be90c9c559" name="Default Changelist" comment="after preview changes and forum addons added">
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/common_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/common_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/multi_language_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/multi_language_helper.php" afterDir="false" />
+    <list default="true" id="a7c3a3c3-8caf-4a8b-b81e-a0be90c9c559" name="Default Changelist" comment="After new update and forum working">
       <change beforePath="$PROJECT_DIR$/application/language/english.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/lessons/lessons.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/lessons/lessons.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/public/frontend/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/public/frontend/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/routes/api.php" afterDir="false" />
@@ -89,7 +84,7 @@
       <workItem from="1604917023368" duration="23000" />
       <workItem from="1604929288147" duration="4511000" />
       <workItem from="1605024915291" duration="1386000" />
-      <workItem from="1605134460653" duration="696000" />
+      <workItem from="1605134460653" duration="1338000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1604914832597</created>
@@ -105,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605134544067</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="After new update and forum working">
+      <created>1605136236518</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605136236518</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +129,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="after preview changes and forum addons added" />
-    <option name="LAST_COMMIT_MESSAGE" value="after preview changes and forum addons added" />
+    <MESSAGE value="After new update and forum working" />
+    <option name="LAST_COMMIT_MESSAGE" value="After new update and forum working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Deployment" timestamp="1604908188942">
@@ -146,10 +149,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604916442575" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605134557673">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605136250776">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605134557673" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605136250776" />
     <state x="389" y="0" width="587" height="728" key="find.popup" timestamp="1604929940640">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

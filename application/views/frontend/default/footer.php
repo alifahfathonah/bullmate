@@ -10,6 +10,9 @@
                     <div class="col-md-6">
                         <ul class="nav justify-content-md-end footer-menu">
                             <li class="nav-item">
+                                <a class="nav-link" href="<?php echo site_url('blog'); ?>"><?php echo get_phrase('blog'); ?></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('home/about_us'); ?>"><?php echo get_phrase('about'); ?></a>
                             </li>
                             <li class="nav-item">
