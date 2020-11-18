@@ -662,8 +662,11 @@ class Home extends CI_Controller {
         }
 
         $page_data['type'] = $_GET['type'];
-
+        
         $page_data['page_name'] = 'sign_up';
+        if($_GET['type']==2){
+            $page_data['page_name'] = 'instructor_sign_up';
+        }
         $page_data['page_title'] = get_phrase('sign_up');
         $this->load->view('frontend/' . get_frontend_settings('theme') . '/index', $page_data);
     }
