@@ -830,5 +830,6 @@
     "blog_edit": "Blog edit",
     "blog_edit_form": "Blog edit form",
     "blog_update_successfully": "Blog update successfully",
-    "blog_deleted_successfully": "Blog deleted successfully"
+    "blog_deleted_successfully": "Blog deleted successfully",
+    "detail": "Detail"
 }

@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="lansapi" />
+    <orderEntry type="module" module-name="points_dispute" />
   </component>
 </module>

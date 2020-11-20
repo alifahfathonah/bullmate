@@ -37,13 +37,13 @@
                                     <div class="form-group">
                                         <label for="first_name"> Do you teach as an Individual or Organization? <span class="text-danger">*</span> </label>
                                         <select  class="form-control pb-0" required name="account_type">
-                                            <option>Individual</option>
-                                            <option>Organization</option>
+                                            <option value="individual">Individual</option>
+                                            <option value="organization">Organization</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="last_name"><span class="input-field-icon"><i class="fas fa-user"></i></span> Full Name: <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="full_name" name = "full_name" id="last_name" placeholder="Full Name" value="" required>
+                                        <label for="full_name"><span class="input-field-icon"><i class="fas fa-user"></i></span> Full Name: <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Full Name" value="" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="registration-email"><span class="input-field-icon"><i class="fas fa-envelope"></i></span> <?php echo get_phrase('email'); ?>: <span class="text-danger">*</span></label>
@@ -55,9 +55,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="first_name">Do you teach online or Classroom? <span class="text-danger">*</span></label><br>
-                                        <input type="radio" name="tech_type" value="online" required="" checked=""> Online
-                                        <input type="radio" name="tech_type" value="classroom" required=""> Classroom
-                                        <input type="radio" name="tech_type" value="both" required=""> Both
+                                        <input type="radio" name="teach_type" value="online" required="" checked=""> Online
+                                        <input type="radio" name="teach_type" value="classroom" required=""> Classroom
+                                        <input type="radio" name="teach_type" value="both" required=""> Both
                                     </div>
 
                                 </div>
@@ -67,40 +67,38 @@
                             </div>
                             <div class="account-have text-center">
                             </div>
-                        </form>
+                       
                     </div>
                     <div class="user-dashboard-content w-100 register-form-2" style="display: none">
                         <div class="content-title-box" style="background-color: #1452a5;">
                         </div>
-                        <form action="<?php echo site_url('login/register'); ?>" method="post">
-                            <input type="hidden" name="type" value="<?= $type ?>">
                             <div class="content-box">
                                 <div class="basic-group">
                                     <div class="form-group">
                                         <label for="orginzation_name"><span class="input-field-icon">What is the name of your organization? <span class="text-danger"></span></label>
-                                        <input type="text" class="form-control" name = "orginzation_name" id="last_name" placeholder="" value="" >
+                                        <input type="text" class="form-control" name = "orginzation_name" id="" placeholder="" value="" >
                                     </div>
                                     <div class="form-group">
                                         <label for="orginzation_name"><span class="input-field-icon">Please tell us a little bit about yourself: <span class="text-danger">*</span></label>
-                                        <textarea type="text" class="form-control" name = "about" id="last_name" placeholder="" value="" required></textarea>
+                                        <textarea type="text" class="form-control" name = "about" id="" placeholder="" value="" required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="orginzation_name"><span class="input-field-icon">Do you have courses published on any E-learning Platform or a platform you own? If yes, list the sites <span class="text-danger">*</span></label>
-                                        <textarea type="text" class="form-control" name = "sites" id="last_name" placeholder="" value="" required></textarea>
+                                        <textarea type="text" class="form-control" name = "sites" id="" placeholder="" value="" required></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="orginzation_name"><span class="input-field-icon">Can you share with us a video link of you talking on camera? It could be an overview of the courses you teach <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name = "video_link" id="last_name" placeholder="" value="" required>
+                                        <input type="text" class="form-control" name = "video_link" id="" placeholder="" value="" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="orginzation_name"><span class="input-field-icon">How many courses are you planning to publish on Bullmate? <span class="text-danger">*</span></label>
-                                        <input type="number" class="form-control" min="1" name = "publish_cources" id="last_name" placeholder="" value="" required>
+                                        <input type="number" class="form-control" min="1" name = "publish_cources" id="" placeholder="" value="" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="orginzation_name"><span class="input-field-icon">Do you have any comments or ideas you will like to share with us?</label>
-                                        <textarea type="text" class="form-control" name = "comments" id="last_name" placeholder="" value="" required></textarea>
+                                        <textarea type="text" class="form-control" name = "comments" id="" placeholder="" value="" ></textarea>
                                     </div>
 
 

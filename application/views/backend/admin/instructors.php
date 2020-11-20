@@ -55,6 +55,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="<?php echo site_url('admin/instructor_form/edit_instructor_form/'.$user['id']) ?>"><?php echo get_phrase('edit'); ?></a></li>
+                                        <li><a class="dropdown-item" onclick="get_instructor_detail(<?=$user['id']?>)" href="javascript:"><?php echo get_phrase('detail'); ?></a></li>
                                         <li><a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url('admin/instructors/delete/'.$user['id']); ?>');"><?php echo get_phrase('delete'); ?></a></li>
                                       <li>
                                         <a class="dropdown-item" href="#" onclick="confirm_modal('<?php echo site_url('admin/user_switching/student/'.$user['id']); ?>');"><?php echo get_phrase('make_as_student'); ?></a>
@@ -74,3 +75,35 @@
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>
+<!-----------------------------------Edit Sale------------------------------------------------------------>
+
+<div class="modal fade" id="instructor_details" data-keyboard="false" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Instructor Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="edit-sale-model">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function get_instructor_detail(id){
+     $.post("<?=site_url('admin/instructor_detail')?>",
+                {id: id},
+                function (data) {
+                    $('#edit-sale-model').html(data);
+                    $('#instructor_details').modal('show');
+                });
+}   
+ 
+</script>

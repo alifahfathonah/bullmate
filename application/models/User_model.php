@@ -193,6 +193,30 @@ class User_model extends CI_Model {
         $this->db->insert('users', $data);
         return $this->db->insert_id();
     }
+    public function register_user_bio($userid) {
+        $subscribe=0;
+        if($this->input->post('subscribe')){
+            $subscribe=1;
+        }
+        $data=array(
+            'account_type'=>$this->input->post('account_type'),
+            'user_id'=>$userid,
+            'teach_type'=>$this->input->post('teach_type'),
+            'orginzation_name'=>$this->input->post('orginzation_name'),
+            'about'=>$this->input->post('about'),
+            'sites'=>$this->input->post('sites'),
+            'video_link'=>$this->input->post('video_link'),
+            'publish_cources'=>$this->input->post('publish_cources'),
+            'comments'=>$this->input->post('comments'),
+            'subscribe'=>$subscribe,
+        );
+        $this->db->insert('users_bio', $data);
+    }
+    
+    public function get_instructor_bio(){
+        $this->db->where('user_id', $this->input->post('id'));
+        return $this->db->from('users_bio')->get()->row();
+    }
 
     public function my_courses() {
         return $this->db->get_where('enrol', array('user_id' => $this->session->userdata('user_id')));

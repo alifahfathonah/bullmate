@@ -1,15 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller
-{
-    public function __construct()
-    {
+class Admin extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
 
         $this->load->database();
         $this->load->library('session');
-        /*cache control*/
+        /* cache control */
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
         if (!$this->session->userdata('cart_items')) {
@@ -17,8 +16,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function index()
-    {
+    public function index() {
         if ($this->session->userdata('admin_login') == true) {
             $this->dashboard();
         } else {
@@ -26,8 +24,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function dashboard()
-    {
+    public function dashboard() {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -36,8 +33,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index.php', $page_data);
     }
 
-    public function blank_template()
-    {
+    public function blank_template() {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -45,8 +41,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index.php', $page_data);
     }
 
-    public function categories($param1 = "", $param2 = "")
-    {
+    public function categories($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -70,8 +65,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function category_form($param1 = "", $param2 = "")
-    {
+    public function category_form($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -90,8 +84,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function sub_categories_by_category_id($category_id = 0)
-    {
+    public function sub_categories_by_category_id($category_id = 0) {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -100,8 +93,7 @@ class Admin extends CI_Controller
         redirect(site_url("admin/sub_categories/$category_id"), 'refresh');
     }
 
-    public function sub_category_form($param1 = "", $param2 = "")
-    {
+    public function sub_category_form($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -118,8 +110,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function users($param1 = "", $param2 = "")
-    {
+    public function users($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -140,8 +131,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function user_form($param1 = "", $param2 = "")
-    {
+    public function user_form($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -158,8 +148,7 @@ class Admin extends CI_Controller
         }
     }
 
-     public function blogs($param1 = "", $param2 = "")
-    {
+    public function blogs($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -180,8 +169,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function blog_form($param1 = "", $param2 = "")
-    {
+    public function blog_form($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -197,9 +185,8 @@ class Admin extends CI_Controller
             $this->load->view('backend/index', $page_data);
         }
     }
-    
-    public function instructors($param1 = "", $param2 = "")
-    {
+
+    public function instructors($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -220,8 +207,38 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function instructor_form($param1 = "", $param2 = "")
-    {
+    public function instructor_detail() {
+        $id = $this->input->post('id');
+        $result = $this->user_model->get_instructor_bio($id);
+        if ($result) {
+        
+        ?>
+        <div class="container">
+            <div class="row">
+                <div class="">
+                    <div class="well profile">
+                        <div class="col-md-12">
+                            <div class="">
+                                <p><strong>account_type: </strong></p><p> <?=$result->account_type?> </p>
+                                <p><strong>teach_type: </strong></p><p> <?=$result->teach_type?> </p>
+                                <p><strong>orginzation_name: </strong></p><p> <?=$result->orginzation_name?> </p>
+                                <p><strong>About: </strong></p><p> <?=$result->about?> </p>
+                                <p><strong>sites: </strong></p><p> <?=$result->sites?> </p>
+                                <p><strong>video_link: </strong></p><p> <?=$result->video_link?> </p>
+                                <p><strong>publish_cources: </strong></p><p> <?=$result->publish_cources?> </p>
+                                <p><strong>comments: </strong></p><p> <?=$result->comments?> </p>
+                            </div>    
+                        </div>    
+                    </div>    
+                </div>    
+            </div>    
+        </div>    
+
+        <?php
+    }
+        }
+
+    public function instructor_form($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -238,8 +255,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function enrol_history($param1 = "")
-    {
+    public function enrol_history($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -259,8 +275,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function enrol_student($param1 = "")
-    {
+    public function enrol_student($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -273,8 +288,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function admin_revenue($param1 = "")
-    {
+    public function admin_revenue($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -295,8 +309,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function instructor_revenue($param1 = "")
-    {
+    public function instructor_revenue($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -307,8 +320,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    function invoice($payment_id = "")
-    {
+    function invoice($payment_id = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -318,8 +330,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function payment_history_delete($param1 = "", $redirect_to = "")
-    {
+    public function payment_history_delete($param1 = "", $redirect_to = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -328,8 +339,7 @@ class Admin extends CI_Controller
         redirect(site_url('admin/' . $redirect_to), 'refresh');
     }
 
-    public function enrol_history_delete($param1 = "")
-    {
+    public function enrol_history_delete($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -338,8 +348,7 @@ class Admin extends CI_Controller
         redirect(site_url('admin/enrol_history'), 'refresh');
     }
 
-    public function purchase_history()
-    {
+    public function purchase_history() {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -349,8 +358,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function system_settings($param1 = "")
-    {
+    public function system_settings($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -379,8 +387,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function frontend_settings($param1 = "")
-    {
+    public function frontend_settings($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -422,8 +429,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function payment_settings($param1 = "")
-    {
+    public function payment_settings($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -456,8 +462,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function smtp_settings($param1 = "")
-    {
+    public function smtp_settings($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -473,8 +478,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function instructor_settings($param1 = "")
-    {
+    public function instructor_settings($param1 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -489,8 +493,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function theme_settings($action = '')
-    {
+    public function theme_settings($action = '') {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -499,8 +502,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function theme_actions($action = "", $theme = "")
-    {
+    public function theme_actions($action = "", $theme = "") {
         if ($action == 'activate') {
             $theme_to_active = $this->input->post('theme');
             $installed_themes = $this->crud_model->get_installed_themes();
@@ -520,11 +522,9 @@ class Admin extends CI_Controller
             }
             redirect(site_url('admin/theme_settings'), 'refresh');
         }
-
     }
 
-    public function courses()
-    {
+    public function courses() {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -546,8 +546,7 @@ class Admin extends CI_Controller
     }
 
     // This function is responsible for loading the course data from server side for datatable SILENTLY
-    public function get_courses()
-    {
+    public function get_courses() {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -692,8 +691,7 @@ class Admin extends CI_Controller
         echo json_encode($json_data);
     }
 
-    public function pending_courses()
-    {
+    public function pending_courses() {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -704,8 +702,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function course_actions($param1 = "", $param2 = "")
-    {
+    public function course_actions($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -713,7 +710,6 @@ class Admin extends CI_Controller
         if ($param1 == "add") {
             $course_id = $this->crud_model->add_course();
             redirect(site_url('admin/course_form/course_edit/' . $course_id), 'refresh');
-
         } elseif ($param1 == "edit") {
             $this->crud_model->update_course($param2);
 
@@ -724,7 +720,6 @@ class Admin extends CI_Controller
             }
 
             redirect(site_url('admin/courses'), 'refresh');
-
         } elseif ($param1 == 'delete') {
             $this->is_drafted_course($param2);
             $this->crud_model->delete_course($param2);
@@ -732,9 +727,7 @@ class Admin extends CI_Controller
         }
     }
 
-
-    public function course_form($param1 = "", $param2 = "")
-    {
+    public function course_form($param1 = "", $param2 = "") {
 
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
@@ -746,7 +739,6 @@ class Admin extends CI_Controller
             $page_data['page_name'] = 'course_add';
             $page_data['page_title'] = get_phrase('add_course');
             $this->load->view('backend/index', $page_data);
-
         } elseif ($param1 == 'course_edit') {
             $this->is_drafted_course($param2);
             $page_data['page_name'] = 'course_edit';
@@ -758,8 +750,7 @@ class Admin extends CI_Controller
         }
     }
 
-    private function is_drafted_course($course_id)
-    {
+    private function is_drafted_course($course_id) {
         $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
         if ($course_details['status'] == 'draft') {
             $this->session->set_flashdata('error_message', get_phrase('you_do_not_have_right_to_access_this_course'));
@@ -767,8 +758,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function change_course_status($updated_status = "")
-    {
+    public function change_course_status($updated_status = "") {
         $course_id = $this->input->post('course_id');
         $category_id = $this->input->post('category_id');
         $instructor_id = $this->input->post('instructor_id');
@@ -784,15 +774,13 @@ class Admin extends CI_Controller
         redirect(site_url('admin/courses?category_id=' . $category_id . '&status=' . $status . '&instructor_id=' . $instructor_id . '&price=' . $price), 'refresh');
     }
 
-    public function change_course_status_for_admin($updated_status = "", $course_id = "", $category_id = "", $status = "", $instructor_id = "", $price = "")
-    {
+    public function change_course_status_for_admin($updated_status = "", $course_id = "", $category_id = "", $status = "", $instructor_id = "", $price = "") {
         $this->crud_model->change_course_status($updated_status, $course_id);
         $this->session->set_flashdata('flash_message', get_phrase('course_status_updated'));
         redirect(site_url('admin/courses?category_id=' . $category_id . '&status=' . $status . '&instructor_id=' . $instructor_id . '&price=' . $price), 'refresh');
     }
 
-    public function sections($param1 = "", $param2 = "", $param3 = "")
-    {
+    public function sections($param1 = "", $param2 = "", $param3 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -810,8 +798,7 @@ class Admin extends CI_Controller
         redirect(site_url('admin/course_form/course_edit/' . $param1));
     }
 
-    public function lessons($course_id = "", $param1 = "", $param2 = "")
-    {
+    public function lessons($course_id = "", $param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -837,8 +824,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function watch_video($slugified_title = "", $lesson_id = "")
-    {
+    public function watch_video($slugified_title = "", $lesson_id = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -851,10 +837,8 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-
     // Language Functions
-    public function manage_language($param1 = '', $param2 = '', $param3 = '')
-    {
+    public function manage_language($param1 = '', $param2 = '', $param3 = '') {
         if ($param1 == 'add_language') {
             saveDefaultJSONFile(trimmer($this->input->post('language')));
             $this->session->set_flashdata('flash_message', get_phrase('language_added_successfully'));
@@ -883,8 +867,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function update_phrase_with_ajax()
-    {
+    public function update_phrase_with_ajax() {
         $current_editing_language = $this->input->post('currentEditingLanguage');
         $updatedValue = $this->input->post('updatedValue');
         $key = $this->input->post('key');
@@ -892,8 +875,7 @@ class Admin extends CI_Controller
         echo $current_editing_language . ' ' . $key . ' ' . $updatedValue;
     }
 
-    function message($param1 = 'message_home', $param2 = '', $param3 = '')
-    {
+    function message($param1 = 'message_home', $param2 = '', $param3 = '') {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
         if ($param1 == 'send_new') {
@@ -919,9 +901,9 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    /******MANAGE OWN PROFILE AND CHANGE PASSWORD***/
-    function manage_profile($param1 = '', $param2 = '', $param3 = '')
-    {
+    /*     * ****MANAGE OWN PROFILE AND CHANGE PASSWORD** */
+
+    function manage_profile($param1 = '', $param2 = '', $param3 = '') {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
         if ($param1 == 'update_profile_info') {
@@ -935,13 +917,12 @@ class Admin extends CI_Controller
         $page_data['page_name'] = 'manage_profile';
         $page_data['page_title'] = get_phrase('manage_profile');
         $page_data['edit_data'] = $this->db->get_where('users', array(
-            'id' => $this->session->userdata('user_id')
-        ))->result_array();
+                    'id' => $this->session->userdata('user_id')
+                ))->result_array();
         $this->load->view('backend/index', $page_data);
     }
 
-    public function paypal_checkout_for_instructor_revenue()
-    {
+    public function paypal_checkout_for_instructor_revenue() {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -953,8 +934,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/admin/paypal_checkout_for_instructor_revenue', $page_data);
     }
 
-    public function stripe_checkout_for_instructor_revenue()
-    {
+    public function stripe_checkout_for_instructor_revenue() {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -967,8 +947,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/admin/stripe_checkout_for_instructor_revenue', $page_data);
     }
 
-    public function payment_success($payment_type = "", $payment_id = "")
-    {
+    public function payment_success($payment_type = "", $payment_id = "") {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -985,8 +964,7 @@ class Admin extends CI_Controller
         redirect(site_url('admin/instructor_revenue'), 'refresh');
     }
 
-    public function user_switching($param1 = "", $param2 = "")
-    {
+    public function user_switching($param1 = "", $param2 = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -997,11 +975,9 @@ class Admin extends CI_Controller
         } else {
             redirect(site_url('admin/users'), 'refresh');
         }
-
     }
 
-    public function preview($course_id = '')
-    {
+    public function preview($course_id = '') {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -1017,8 +993,7 @@ class Admin extends CI_Controller
     }
 
     // Manage Quizes
-    public function quizes($course_id = "", $action = "", $quiz_id = "")
-    {
+    public function quizes($course_id = "", $action = "", $quiz_id = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -1037,8 +1012,7 @@ class Admin extends CI_Controller
     }
 
     // Manage Quize Questions
-    public function quiz_questions($quiz_id = "", $action = "", $question_id = "")
-    {
+    public function quiz_questions($quiz_id = "", $action = "", $question_id = "") {
         if ($this->session->userdata('admin_login') != true) {
             redirect(site_url('login'), 'refresh');
         }
@@ -1058,8 +1032,7 @@ class Admin extends CI_Controller
     }
 
     // software about page
-    function about()
-    {
+    function about() {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -1070,8 +1043,7 @@ class Admin extends CI_Controller
     }
 
     // software mobile app page
-    function mobile_app()
-    {
+    function mobile_app() {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -1080,8 +1052,7 @@ class Admin extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
-    public function install_theme($theme_to_install = '')
-    {
+    public function install_theme($theme_to_install = '') {
 
         if ($this->session->userdata('admin_login') != 1) {
             redirect(site_url('login'), 'refresh');
@@ -1131,54 +1102,47 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('flash_message', get_phrase('theme_imported_successfully'));
         redirect(site_url('admin/theme_settings'));
     }
+
     // AJAX PORTION
     // this function is responsible for managing multiple choice question
-    function manage_multiple_choices_options()
-    {
+    function manage_multiple_choices_options() {
         $page_data['number_of_options'] = $this->input->post('number_of_options');
         $this->load->view('backend/admin/manage_multiple_choices_options', $page_data);
     }
 
-    public function ajax_get_sub_category($category_id)
-    {
+    public function ajax_get_sub_category($category_id) {
         $page_data['sub_categories'] = $this->crud_model->get_sub_categories($category_id);
 
         return $this->load->view('backend/admin/ajax_get_sub_category', $page_data);
     }
 
-    public function ajax_get_section($course_id)
-    {
+    public function ajax_get_section($course_id) {
         $page_data['sections'] = $this->crud_model->get_section('course', $course_id)->result_array();
         return $this->load->view('backend/admin/ajax_get_section', $page_data);
     }
 
-    public function ajax_get_video_details()
-    {
+    public function ajax_get_video_details() {
         $video_details = $this->video_model->getVideoDetails($_POST['video_url']);
         echo $video_details['duration'];
     }
 
-    public function ajax_sort_section()
-    {
+    public function ajax_sort_section() {
         $section_json = $this->input->post('itemJSON');
         $this->crud_model->sort_section($section_json);
     }
 
-    public function ajax_sort_lesson()
-    {
+    public function ajax_sort_lesson() {
         $lesson_json = $this->input->post('itemJSON');
         $this->crud_model->sort_lesson($lesson_json);
     }
 
-    public function ajax_sort_question()
-    {
+    public function ajax_sort_question() {
         $question_json = $this->input->post('itemJSON');
         $this->crud_model->sort_question($question_json);
     }
 
     //ADDON MANAGER PORTION STARTS HERE
-    public function addon($param1 = "", $param2 = "", $param3 = "")
-    {
+    public function addon($param1 = "", $param2 = "", $param3 = "") {
         if ($this->session->userdata('admin_login') != 1) {
             redirect(site_url('login'), 'refresh');
         }
@@ -1225,8 +1189,7 @@ class Admin extends CI_Controller
     }
 
     //AVAILABLE_ADDONS
-    public function available_addons()
-    {
+    public function available_addons() {
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 
@@ -1234,4 +1197,5 @@ class Admin extends CI_Controller
         $page_data['page_title'] = get_phrase('available_addon');
         $this->load->view('backend/index', $page_data);
     }
+
 }

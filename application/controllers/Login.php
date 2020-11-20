@@ -55,8 +55,14 @@ class Login extends CI_Controller {
     }
 
     public function register() {
+        if($this->input->post('type') == 2){
+            $name= explode(' ',html_escape($this->input->post('full_name')),2);
+            $data['first_name']=$name[0];
+            $data['last_name']=@$name[1];
+        }else{
         $data['first_name'] = html_escape($this->input->post('first_name'));
         $data['last_name']  = html_escape($this->input->post('last_name'));
+        }
         $data['email']  = html_escape($this->input->post('email'));
         $data['password']  = sha1($this->input->post('password'));
 
@@ -81,7 +87,7 @@ class Login extends CI_Controller {
         $data['role_id']  = 2;
 
         if($this->input->post('type') == 2){
-            $data['type'] = 3;
+            $data['type'] = 2;
             $data['is_request'] = 1;
         }else{
             $data['type'] = 3;
@@ -105,6 +111,9 @@ class Login extends CI_Controller {
         $validity = $this->user_model->check_duplication('on_create', $data['email']);
         if ($validity) {
             $user_id = $this->user_model->register_user($data);
+            if($this->input->post('type') == 2){
+                $this->user_model->register_user_bio($user_id);
+            }
             if (get_settings('student_email_verification') == 'enable') {
                 $this->email_model->send_email_verification_mail($data['email'], $verification_code);
                 $this->session->set_flashdata('flash_message', get_phrase('your_registration_has_been_successfully_done').'. '.get_phrase('please_check_your_mail_inbox_to_verify_your_email_address').'.');

@@ -20,13 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7c3a3c3-8caf-4a8b-b81e-a0be90c9c559" name="Default Changelist" comment="blog and other points completed">
+      <change beforePath="$PROJECT_DIR$/.idea/bullmate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bullmate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/frontend/default/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/frontend/default/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/nbproject/private/private.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/public/frontend/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/public/frontend/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lansapi/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lansapi/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points_dispute/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/../points_dispute/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points_dispute/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../points_dispute/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points_dispute/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../points_dispute/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points_dispute/application/controllers/Pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/../points_dispute/application/controllers/Pages.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +52,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../lansapi" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../points_dispute" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/../lansapi/package.json" />
@@ -64,7 +75,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/frontend/default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../points_dispute" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -87,7 +98,8 @@
       <workItem from="1604929288147" duration="4511000" />
       <workItem from="1605024915291" duration="1386000" />
       <workItem from="1605134460653" duration="1338000" />
-      <workItem from="1605298339226" duration="795000" />
+      <workItem from="1605298339226" duration="1562000" />
+      <workItem from="1605704974206" duration="2221000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1604914832597</created>
@@ -117,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605298470968</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="blog and other points completed">
+      <created>1605300894559</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605300894559</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,18 +171,19 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604916561503" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1604929315738">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1829" y="118" key="FileChooserDialogImpl" timestamp="1605705089025">
+      <screen x="1366" y="0" width="1366" height="728" />
     </state>
+    <state x="1829" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1605705089025" />
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604929315738" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1604916442575">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604916442575" />
-    <state x="1641" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605298504893">
+    <state x="1641" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605300909317">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1641" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1605298504893" />
+    <state x="1641" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1605300909317" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605136250776" />
     <state x="389" y="0" width="587" height="728" key="find.popup" timestamp="1604929940640">
       <screen x="0" y="0" width="1366" height="728" />
