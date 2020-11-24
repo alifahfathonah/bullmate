@@ -114,6 +114,12 @@ class Login extends CI_Controller {
             if($this->input->post('type') == 2){
                 $this->user_model->register_user_bio($user_id);
             }
+            // adding into mail chimp
+             // Save user to the mailchimp
+            $user_list_id = $this->config->item('MailChimp_user_list_key');
+            ; // for user list
+            $this->add_to_mailchimp($data['first_name'],$data['last_name'],$data['status'],$data['email'], $user_list_id);
+            
             if (get_settings('student_email_verification') == 'enable') {
                 $this->email_model->send_email_verification_mail($data['email'], $verification_code);
                 $this->session->set_flashdata('flash_message', get_phrase('your_registration_has_been_successfully_done').'. '.get_phrase('please_check_your_mail_inbox_to_verify_your_email_address').'.');
@@ -127,6 +133,27 @@ class Login extends CI_Controller {
         redirect(site_url('home'), 'refresh');
     }
 
+      public function add_to_mailchimp($fname,$lname,$type,$email, $list_id) {
+        $this->load->library('MailChimp');
+        if($type==2){
+            $tag="Bullmate Instructors";
+        }else{
+            $tag="Bullmate Students";
+        }
+        $result = $this->mailchimp->post("lists/$list_id/members", [
+            'email_address' => $email,
+            'status' => 'subscribed',
+             'merge_fields'  => [
+                'FNAME' => $fname,
+                'LNAME' => $lname
+            ],
+               'tags'  => array($tag),
+         
+        ]);
+        echo "<pre>";
+        print_r($result);
+        die();
+    }
     public function logout($from = "") {
         //destroy sessions of specific userdata. We've done this for not removing the cart session
         $this->session_destroy();
