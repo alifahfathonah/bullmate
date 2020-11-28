@@ -118,7 +118,7 @@ class Login extends CI_Controller {
              // Save user to the mailchimp
             $user_list_id = $this->config->item('MailChimp_user_list_key');
             ; // for user list
-            $this->add_to_mailchimp($data['first_name'],$data['last_name'],$data['status'],$data['email'], $user_list_id);
+            $this->add_to_mailchimp($data['first_name'],$data['last_name'],$data['type'],$data['email'], $user_list_id);
             
             if (get_settings('student_email_verification') == 'enable') {
                 $this->email_model->send_email_verification_mail($data['email'], $verification_code);
@@ -150,9 +150,9 @@ class Login extends CI_Controller {
                'tags'  => array($tag),
          
         ]);
-        echo "<pre>";
-        print_r($result);
-        die();
+//        echo "<pre>";
+//        print_r($result);
+//        die();
     }
     public function logout($from = "") {
         //destroy sessions of specific userdata. We've done this for not removing the cart session
