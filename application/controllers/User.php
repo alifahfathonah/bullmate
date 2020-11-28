@@ -240,7 +240,7 @@ class User extends CI_Controller {
             $page_data['languages']	= $this->crud_model->get_all_languages();
             $page_data['categories'] = $this->crud_model->get_categories();
             $page_data['page_name'] = 'course_add';
-            $page_data['page_title'] = get_phrase('add_course');
+            $page_data['page_title'] = get_phrase('create_new_course');
             $this->load->view('backend/index', $page_data);
 
         }elseif ($param1 == 'course_edit') {
