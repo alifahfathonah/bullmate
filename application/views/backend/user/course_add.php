@@ -2,7 +2,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="page-title"> <i class="mdi mdi-apple-keyboard-command title_icon"></i> <?php echo get_phrase('add_new_course'); ?></h4>
+                <h4 class="page-title"> <i class="mdi mdi-apple-keyboard-command title_icon"></i> <?php echo get_phrase('create_new_course'); ?></h4>
             </div> <!-- end card body-->
         </div> <!-- end card -->
     </div><!-- end col-->
@@ -12,8 +12,17 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-
-                <h4 class="header-title mb-3"><?php echo get_phrase('course_adding_form'); ?>
+                <div class="row mb-3">
+                <div class="col-md-10">
+                    <p class="text-info">Just getting started with Bullmate? What the video. Here’s is a step-by-step guide to help you create an awesome course in no time.</p>
+                </div>
+                    <div class="col-md-2">
+                        <div class="pull-right">
+                        <a class="btn btn-primary btn-block " href="#">Video Link</a>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="header-title mb-3"><?php echo get_phrase('new_course_form'); ?>
                     <a href="<?php echo site_url('user/courses'); ?>" class="alignToTitle btn btn-outline-secondary btn-rounded btn-sm"> <i class=" mdi mdi-keyboard-backspace"></i> <?php echo get_phrase('back_to_course_list'); ?></a>
                 </h4>
 
@@ -148,6 +157,7 @@
                                                             <div class="flex-grow-1 px-3">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
+                                                                     <label class="form-text text-muted">List specific requirements you need from your student before they  can take your course.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="">
@@ -184,6 +194,7 @@
                                                             <div class="flex-grow-1 px-3">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
+                                                                    <label class="form-text text-muted">List what the students will learn or master at the end of your course.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="">
