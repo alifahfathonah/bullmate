@@ -14,11 +14,11 @@
             <div class="card-body">
                 <div class="row mb-3">
                 <div class="col-md-10">
-                    <p class="text-info">Just getting started with Bullmate? What the video. Here’s is a step-by-step guide to help you create an awesome course in no time.</p>
+                    <p class="text-info">Just getting started with Bullmate? watch the video. Here’s is a step-by-step guide to help you create an awesome course in no time.</p>
                 </div>
                     <div class="col-md-2">
                         <div class="pull-right">
-                        <a class="btn btn-primary btn-block " href="#">Video Link</a>
+                            <a class="btn btn-primary btn-block " target="_blank" href="<?php echo get_frontend_settings('video_link'); ?>">Video Link</a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                                     <li class="nav-item">
                                         <a href="#finish" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-checkbox-marked-circle-outline mr-1"></i>
-                                            <span class="d-none d-sm-inline"><?php echo get_phrase('finish'); ?></span>
+                                            <span class="d-none d-sm-inline"><?php echo get_phrase('next'); ?></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -132,6 +132,18 @@
                                                             <option value="<?php echo $language; ?>"><?php echo ucfirst($language); ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="Final_Exam"><?php echo get_phrase('Final_Exam'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name="final_exam">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="Certificate"><?php echo get_phrase('Certificate'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name="certificate">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
@@ -315,12 +327,12 @@
                                         <div class="col-12">
                                             <div class="text-center">
                                                 <h2 class="mt-0"><i class="mdi mdi-check-all"></i></h2>
-                                                <h3 class="mt-0"><?php echo get_phrase("thank_you"); ?> !</h3>
+                                                <h3 class="mt-0"><?php echo 'Click Next'; ?> !</h3>
 
-                                                <p class="w-75 mb-2 mx-auto"><?php echo get_phrase('you_are_just_one_click_away'); ?></p>
+                                                <p class="w-75 mb-2 mx-auto"><?php echo 'You are almost done creating your new course'; ?></p>
 
                                                 <div class="mb-3 mt-3">
-                                                    <button type="button" class="btn btn-primary text-center" onclick="checkRequiredFields()"><?php echo get_phrase('submit'); ?></button>
+                                                    <button type="button" class="btn btn-primary text-center" onclick="checkRequiredFields()"><?php echo get_phrase('next'); ?></button>
                                                 </div>
                                             </div>
                                         </div> <!-- end col -->

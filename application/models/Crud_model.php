@@ -392,6 +392,8 @@ class Crud_model extends CI_Model {
     $data['short_description'] = $this->input->post('short_description');
     $data['description'] = $this->input->post('description');
     $data['outcomes'] = $outcomes;
+    $data['final_exam'] = $this->input->post('final_exam');
+    $data['certificate'] = $this->input->post('certificate');
     $data['language'] = $this->input->post('language_made_in');
     $data['sub_category_id'] = $this->input->post('sub_category_id');
     $category_details = $this->get_category_details_by_id($this->input->post('sub_category_id'))->row_array();
@@ -479,6 +481,8 @@ class Crud_model extends CI_Model {
     $data['short_description'] = $this->input->post('short_description');
     $data['description'] = $this->input->post('description');
     $data['outcomes'] = $outcomes;
+    $data['final_exam'] = $this->input->post('final_exam');
+    $data['certificate'] = $this->input->post('certificate');
     $data['language'] = $this->input->post('language_made_in');
     $data['sub_category_id'] = $this->input->post('sub_category_id');
     $category_details = $this->get_category_details_by_id($this->input->post('sub_category_id'))->row_array();
@@ -602,12 +606,16 @@ class Crud_model extends CI_Model {
     return $this->db->get('course');
   }
 
-  public function get_courses_by_search_string($search_string) {
-    $this->db->like('title', $search_string);
+  public function get_courses_by_search_string($search_string,$instructor_id='') {
+    if($instructor_id!=''){
+        $this->db->where('user_id', $instructor_id);
+    }else{
+        $this->db->like('title', $search_string);
+    }
     $this->db->where('status', 'active');
     return $this->db->get('course');
   }
-
+  //umarmajeed.com get all instructors
 
   public function get_course_by_id($course_id = "") {
     return $this->db->get_where('course', array('id' => $course_id));
@@ -963,6 +971,10 @@ class Crud_model extends CI_Model {
 
       $data['value'] = $this->input->post('refund_policy');
       $this->db->where('key', 'refund_policy');
+      $this->db->update('frontend_settings', $data);
+      
+      $data['value'] = $this->input->post('video_link');
+      $this->db->where('key', 'video_link');
       $this->db->update('frontend_settings', $data);
   }
 

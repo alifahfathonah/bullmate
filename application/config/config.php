@@ -528,7 +528,7 @@ $config['proxy_ips'] = '';
 
 // Mailchimp API KEY
 
-$config['Mailchimp_api_key'] = 'd1b7214697d2be79d70222258bfe002a-us7';
+$config['Mailchimp_api_key'] = '8cdf52ef8de5bf776f2be47e5a5ae4e4-us7';
 
 // Mail chimp list keys
 $config['MailChimp_user_list_key'] = '8d670452da';

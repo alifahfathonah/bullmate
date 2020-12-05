@@ -831,5 +831,16 @@
     "blog_edit_form": "Blog edit form",
     "blog_update_successfully": "Blog update successfully",
     "blog_deleted_successfully": "Blog deleted successfully",
-    "detail": "Detail"
+    "detail": "Detail",
+    "instructor_add": "Instructor add",
+    "instructor_add_form": "Instructor add form",
+    "create_new_course": "Create new course",
+    "new_course_form": "New course form",
+    "submit_to_next": "Submit to next",
+    "your_learning_outcomes": "Your learning outcomes",
+    "course_description": "Course description",
+    "meet_your_course_instructors": "Meet your course instructors",
+    "final_exam": "Final exam",
+    "final_exan": "Final exan",
+    "institues": "Institues"
 }

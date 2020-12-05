@@ -396,12 +396,22 @@ class Home extends CI_Controller {
         $page_data['my_courses'] = $course_details;
         $this->load->view('frontend/' . get_frontend_settings('theme') . '/reload_my_courses', $page_data);
     }
-
+    public function institues(){
+        $page_data['layout'] = $this->session->userdata('layout');
+        $page_data['page_name'] = 'institues_page';
+        $page_data['institues'] = $this->user_model->get_instructor_list()->result_array();
+        $page_data['page_title'] = get_phrase('Institues');
+        $this->load->view('frontend/' . get_frontend_settings('theme') . '/index', $page_data);
+    }
     public function search($search_string = "") {
         if (isset($_GET['query']) && !empty($_GET['query'])) {
             $search_string = $_GET['query'];
             $page_data['courses'] = $this->crud_model->get_courses_by_search_string($search_string)->result_array();
-        } else {
+        }else if (isset($_GET['iid']) && !empty($_GET['iid'])) {
+            $instructor_id = $_GET['iid'];
+            $search_string='';
+            $page_data['courses'] = $this->crud_model->get_courses_by_search_string($search_string,$instructor_id)->result_array();
+        }else {
             $this->session->set_flashdata('error_message', get_phrase('no_search_value_found'));
             redirect(site_url(), 'refresh');
         }

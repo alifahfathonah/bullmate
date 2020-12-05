@@ -26,6 +26,11 @@
                         <a class="nav-link" id="certificate-tab" data-toggle="tab" href="#certificate" role="tab" aria-controls="certificate" aria-selected="false" onclick="checkCertificateEligibility()"><?php echo get_phrase('certificate'); ?></a>
                     </li>
                 <?php endif; ?>
+                      <?php if(addon_status('forum')): ?>
+                            <li class="nav-item">
+                                <a class="nav-link remove-active" href="#qAndA" role="tab"  aria-selected="false" onclick="load_questions('<?= $course_id; ?>')"><?= site_phrase('forum'); ?></a>
+                            </li>
+                        <?php endif; ?>
             </ul>
             <div class="tab-content" id="lessonTabContent">
                 <div class="tab-pane fade show active" id="section_and_lessons" role="tabpanel" aria-labelledby="section_and_lessons-tab">
@@ -116,7 +121,7 @@
                     <!-- Lesson Content ends from here -->
                 </div>
                 <!-- ZOOM LIVE CLASS TAB -->
-                    <?php if (addon_status('live-class')): ?>
+                 <?php if (addon_status('live-class')): ?>
                     <div class="tab-pane fade" id="liveclass" role="tabpanel" aria-labelledby="liveclass-tab" style="text-align: center;">
     <?php
     $live_class = $this->db->get_where('live_class', array('course_id' => $course_id));

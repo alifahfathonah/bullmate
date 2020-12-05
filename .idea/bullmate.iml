@@ -10,5 +10,6 @@
     <orderEntry type="module" module-name="lansapi" />
     <orderEntry type="module" module-name="points_dispute" />
     <orderEntry type="module" module-name="findlawyer" />
+    <orderEntry type="module" module-name="inova" />
   </component>
 </module>

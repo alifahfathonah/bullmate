@@ -45,9 +45,14 @@
                     <div class="form-group">
                         <label for="privacy_policy"><?php echo get_phrase('privacy_policy'); ?></label>
                         <textarea name="privacy_policy" id = "privacy_policy" class="form-control" rows="5"><?php echo get_frontend_settings('privacy_policy'); ?></textarea>
-                    </div>  <div class="form-group">
+                    </div>  
+                    <div class="form-group">
                         <label for="refund_policy"><?php echo 'Refund Policy' ?></label>
                         <textarea name="refund_policy" id = "refund_policy" class="form-control" rows="5"><?php echo get_frontend_settings('refund_policy'); ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="video_link"><?php echo 'Course Video Link' ?></label>
+                        <textarea name="video_link" id = "video_link" class="form-control" rows="5"><?php echo get_frontend_settings('video_link'); ?></textarea>
                     </div>
 
                     <div class="row justify-content-center">

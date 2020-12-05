@@ -186,6 +186,18 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="Final_Exam"><?php echo get_phrase('Final_Exam'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name="final_exam"  value="<?php echo $course_details['final_exam']; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-2 col-form-label" for="Certificate"><?php echo get_phrase('Certificate'); ?></label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name="certificate"  value="<?php echo $course_details['certificate']; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
                                                 <div class="offset-md-2 col-md-10">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" name="is_top_course" id="is_top_course" value="1" <?php if($course_details['is_top_course'] == 1) echo 'checked'; ?>>

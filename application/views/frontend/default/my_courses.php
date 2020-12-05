@@ -113,12 +113,12 @@ foreach ($my_courses as $my_course) {
                                               <?php echo get_phrase('rating'); ?>
                                           </p> -->
                                           <p class="your-rating-text">
-                                            <a href="javascript::" id = "edit_rating_btn_<?php echo $course_details['id']; ?>" onclick="toggleRatingView('<?php echo $course_details['id']; ?>')" style="color: #2a303b"><?php echo get_phrase('edit_rating'); ?></a>
+                                            <a href="javascript::" id = "edit_rating_btn_<?php echo $course_details['id']; ?>" onclick="toggleRatingView('<?php echo $course_details['id']; ?>')" style="color: #2a303b"><?php echo 'Rate and review this course '; ?></a>
     		                                    <a href="javascript::" class="hidden" id = "cancel_rating_btn_<?php echo $course_details['id']; ?>" onclick="toggleRatingView('<?php echo $course_details['id']; ?>')" style="color: #2a303b"><?php echo get_phrase('cancel_rating'); ?></a>
                                           </p>
                                       </div>
                                   </div>
-                                  <div class="row" style="padding: 5px;">
+                                  <div class="row" style="padding: 1px;">
                                       <div class="col-md-6">
                                           <a href="<?php echo site_url('home/course/'.slugify($course_details['title']).'/'.$my_course['course_id']); ?>" class="btn"><?php echo get_phrase('course_detail'); ?></a>
                                       </div>

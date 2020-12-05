@@ -55,7 +55,7 @@ $course_ids = $this->crud_model->get_instructor_wise_courses($instructor_id, 'si
                             </li>
                             <li>
                                 <div class="small"><?php echo get_phrase('courses'); ?></div>
-                                <div class="num"><?php echo sizeof($course_ids); ?></div>
+                                <div class="num"><a href="<?=site_url("home/search?iid=$instructor_id");?>"><?php echo sizeof($course_ids); ?></a></div>
                             </li>
                             <li>
                                 <div class="small"><?php echo get_phrase('reviews'); ?></div>
