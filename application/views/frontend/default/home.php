@@ -24,33 +24,33 @@
             <?php $courses = $this->crud_model->get_courses(); ?>
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fas fa-bullseye float-left"></i>
+                    <i class="fas fa-laptop float-left"></i>
                     <div class="text-box">
                         <h4><?php
                         $status_wise_courses = $this->crud_model->get_status_wise_courses();
                         $number_of_courses = $status_wise_courses['active']->num_rows();
-                        echo $number_of_courses.' '.get_phrase('online_courses'); ?></h4>
-                        <p><?php echo get_phrase('explore_a_variety_of_fresh_topics'); ?></p>
+                        echo $number_of_courses.' '.get_phrase('Published courses'); ?></h4>
+                        <p><?php echo get_phrase('Build skills with expert courses'); ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fa fa-check float-left"></i>
+                    <i class="fa fa-chalkboard-teacher float-left"></i>
                     <div class="text-box">
-                        <h4><?php echo get_phrase('expert_instruction'); ?></h4>
-                        <p><?php echo get_phrase('find_the_right_course_for_you'); ?></p>
+                        <h4><?php echo get_phrase('Subject matter experts'); ?></h4>
+                        <p><?php echo get_phrase('Learn from world-class instructors'); ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box mr-md-auto ml-auto mr-auto">
-                    <i class="fa fa-clock float-left"></i>
+                    <i class="fa fa-certificate float-left"></i>
                     <div class="text-box">
-                        <h4><?php echo get_phrase('lifetime_access'); ?></h4>
-                        <p><?php echo get_phrase('learn_on_your_schedule'); ?></p>
+                        <h4><?php echo get_phrase('Show Achievements'); ?></h4>
+                        <p><?php echo get_phrase('Earn Completion Certificates'); ?></p>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
     <div class="container-lg">
         <div class="row">
             <div class="col">
-                <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2>
+                <h2 class="course-carousel-title"><?php echo get_phrase('Explore top courses'); ?></h2>
                 <div class="course-carousel">
                     <?php $top_courses = $this->crud_model->get_top_courses()->result_array();
                     $cart_items = $this->session->userdata('cart_items');

@@ -83,8 +83,8 @@ class Course_forum_model extends CI_Model {
             $this->db->insert('course_forum', $data);
         }
     }
-
-    function search_questions($course_id = ""){
+    
+        function search_questions($course_id = ""){
         $searching_keyword = html_escape($this->input->post('searching_value'));
         $this->db->like('title', $searching_keyword);
         $this->db->or_like('description', $searching_keyword);

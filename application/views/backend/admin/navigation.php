@@ -139,10 +139,6 @@
 					</li>
 				<?php endif; ?>
 
-				<li class = "<?php if($page_name == 'frontend_settings') echo 'active'; ?>">
-					<a href="<?php echo site_url('admin/frontend_settings'); ?>"><?php echo get_phrase('website_settings'); ?></a>
-				</li>
-
 				<li class = "<?php if($page_name == 'payment_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/payment_settings'); ?>"><?php echo get_phrase('payment_settings'); ?></a>
 				</li>

@@ -25,6 +25,19 @@ class Course_forum extends CI_Controller {
 
     function publish_question(){
         $this->course_forum_model->publish_question();
+        $coruse=$this->crud_model->get_instructor_by_course_id(html_escape($this->input->post('course_id')));
+        $instructor=$this->crud_model->get_instructor_bio_for_email($coruse->user_id);
+        $redirect_url = site_url('login');
+        $title=$coruse->title;
+        $to=$instructor->email;
+        $subject 		= "Received a new comment on $title";
+        $email_msg	=	"<b>Hello $instructor->first_name,</b><br>";
+        $email_msg	.=	"<p>You have received a new comment on your course $title.</p><br>";
+        $email_msg	.=	"<p></p><br>";
+        $email_msg	.=	"<p>".html_escape($this->input->post('title'))."</p><br>";
+        $email_msg	.=	"<p></p><br>";
+//        $email_msg	.=	"<a href = '$redirect_url' target = '_blank'>$redirect_url</a>";
+        $this->email_model->send_smtp_mail($email_msg, $subject, $to);
         echo 'success';
     }
 

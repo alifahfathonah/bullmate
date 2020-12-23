@@ -1658,7 +1658,7 @@ course page style
 course header
 */
 section.course-header-area {
-    background-color: #29303b;
+    background-color: #03506f;
     color: #fff;
     padding: 60px 0;
 }
@@ -1668,7 +1668,7 @@ section.course-header-area {
     top: 0;
     left: 0;
     z-index: 9;
-    background-color: rgba(41,48,59,.8);
+    background-color: #03506f;
     padding: 10px 0;
 }
 .course-header-area.duplicated .title{

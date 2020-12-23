@@ -7,7 +7,12 @@
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>
-
+<style>
+    .popover  {
+background: #d1d5ff !important;
+color:  #ffffff !important;
+}
+</style>
 <div class="row">
     <div class="col-xl-12">
         <div class="card">
@@ -162,14 +167,13 @@
                                     <div class="row justify-content-center">
                                         <div class="col-xl-8">
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-2 col-form-label" for="requirements"><?php echo get_phrase('requirements'); ?></label>
-                                                <div class="col-md-10">
+                                                <label class="col-md-3 col-form-label" for="requirements"><?php echo get_phrase('requirements'); ?> <a href="#" data-toggle="popover" data-trigger="focus"  data-placement="top"  data-content="List&nbsp; specific requirements you need from your student before they can take your course.Pre-requisites, Computer and internet knowledge. See &ldquo;how to create course&rdquo; video for guidance."><i class="fa fa-question-circle"></i></a></label>
+                                                <div class="col-md-9">
                                                     <div id = "requirement_area">
                                                         <div class="d-flex mt-2">
                                                             <div class="flex-grow-1 px-3">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control" name="requirements[]" id="requirements" placeholder="<?php echo get_phrase('provide_requirements'); ?>">
-                                                                     <label class="form-text text-muted">List specific requirements you need from your student before they  can take your course.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="">
@@ -191,6 +195,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <h6 class="text-danger">Hint: List specific requirements you need from your student before they can take your course.Pre-requisites, Computer and internet knowledge. See “how to create course” video for guidance. </h6>
+
                                         </div>
                                     </div>
                                 </div>
@@ -199,14 +205,13 @@
                                     <div class="row justify-content-center">
                                         <div class="col-xl-8">
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-2 col-form-label" for="outcomes"><?php echo get_phrase('outcomes'); ?></label>
-                                                <div class="col-md-10">
+                                                <label class="col-md-3 col-form-label" for="outcomes"><?php echo get_phrase('outcomes'); ?> <a href="#" data-toggle="popover" data-trigger="focus"  data-placement="top"  data-content="List the course outcomes or the things the students will learn or master at the end of your course."><i class="fa fa-question-circle"></i></a></label>
+                                                <div class="col-md-9">
                                                     <div id = "outcomes_area">
                                                         <div class="d-flex mt-2">
                                                             <div class="flex-grow-1 px-3">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control" name="outcomes[]" id="outcomes" placeholder="<?php echo get_phrase('provide_outcomes'); ?>">
-                                                                    <label class="form-text text-muted">List what the students will learn or master at the end of your course.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="">
@@ -228,6 +233,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <h6 class="text-danger">Hint: List the course outcomes or the things the students will learn or master at the end of your course.</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -431,7 +437,11 @@ function calculateDiscountPercentage(discounted_price) {
   }
 }
 </script>
-
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
 <style media="screen">
 body {
   overflow-x: hidden;

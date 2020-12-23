@@ -477,14 +477,15 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                         <div class="includes">
                             <div class="title"><b><?php echo get_phrase('includes'); ?>:</b></div>
                             <ul>
-                                <li><i class="far fa-file-video"></i>
+                                <li><i class="fa fa-certificate"></i><?php echo get_phrase('Completion Certificate'); ?></li>
+                                <li><i class="fa fa-book-open"></i><?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows() . ' ' . get_phrase('lessons'); ?></li>
+                                <li><i class="fa fa-video"></i>
                                     <?php
                                     echo $this->crud_model->get_total_duration_of_lesson_by_course_id($course_details['id']) . ' ' . get_phrase('on_demand_videos');
                                     ?>
                                 </li>
-                                <li><i class="far fa-file"></i><?php echo $this->crud_model->get_lessons('course', $course_details['id'])->num_rows() . ' ' . get_phrase('lessons'); ?></li>
-                                <li><i class="far fa-compass"></i><?php echo get_phrase('full_lifetime_access'); ?></li>
-                                <li><i class="fas fa-mobile-alt"></i><?php echo get_phrase('access_on_mobile_and_tv'); ?></li>
+                                <li><i class="fa fa-user"></i><?php echo get_phrase('Learn at your own pace'); ?></li>
+                                
                             </ul>
                         </div>
                     </div>

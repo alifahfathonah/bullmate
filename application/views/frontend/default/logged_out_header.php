@@ -41,7 +41,7 @@
                                     
             <a href="<?php echo site_url('home/login'); ?>" class="btn btn-sign-in"><?php echo get_phrase('log_in'); ?></a>
 
-            <a href="<?php echo site_url('home/sign_up?type=3'); ?>" class="btn btn-sign-up"><?php echo get_phrase('sign_up'); ?></a>
+            <a href="<?php echo site_url('home/sign_up?type=3'); ?>" class="btn btn-sign-up"><?php echo get_phrase('Join for Free '); ?></a>
 
           </div> <!--  sign-in-box end -->
         </nav>

@@ -28,7 +28,7 @@
                 <?php endif; ?>
                       <?php if(addon_status('forum')): ?>
                             <li class="nav-item">
-                                <a class="nav-link remove-active" href="#qAndA" role="tab"  aria-selected="false" onclick="load_questions('<?= $course_id; ?>')"><?= site_phrase('forum'); ?></a>
+                                <a class="nav-link remove-active" href="#qAndA" role="tab"  aria-selected="false"><?= site_phrase('forum'); ?></a>
                             </li>
                         <?php endif; ?>
             </ul>

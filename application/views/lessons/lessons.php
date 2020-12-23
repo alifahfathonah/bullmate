@@ -56,3 +56,8 @@ $course_details_url = site_url("home/course/".slugify($course_details['title']).
         </div>
     </div>
 </div>
+<script>
+  $(document).ready(function(){
+      load_questions('<?= $course_id; ?>');
+  });
+</script>

@@ -1835,4 +1835,15 @@ class Crud_model extends CI_Model {
             return $result=array_column($result, 'id');
             print_r($result);
       }
+      
+      public function get_instructor_by_course_id($course_id){
+          $this->db->where('id',$course_id);
+          $this->db->select('user_id,title');
+          return $this->db->from('course')->get()->row();
+      }
+      public function get_instructor_bio_for_email($user_id){
+          $this->db->where('id',$user_id);
+          $this->db->select('first_name,last_name,email');
+          return $this->db->from('users')->get()->row();
+      }
     }

@@ -107,8 +107,8 @@
                                         $page = "home/privacy_policy";
                                         $terms_page = "/home/instructor_terms_and_condition";
                                         ?>
-                                        <input type="checkbox" name="subscribe" id="terms" checked > Yes! I want to receive instructor updates, announcements, email updates, deals and tips.<br>
-                                        <input required type="checkbox" name="terms" id="terms" checked>  I agree to the <a href="<?php echo site_url($page); ?>">privacy policy</a> along with <a href="<?php echo site_url($terms_page); ?>">terms & conditions</a> of BullMate
+                                        <input type="checkbox" name="subscribe" id="terms" checked > Yes! I want to receive instructors’ updates , announcements, email updates, deals and tips from Bullmate.<br>
+                                        <input required type="checkbox" name="terms" id="terms" checked>I agree to the privacy policy, terms and conditions of Bullmate.
                                     </div>
                                 </div>
                             </div>

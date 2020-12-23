@@ -55,7 +55,10 @@
                         <textarea name="video_link" id = "video_link" class="form-control" rows="5"><?php echo get_frontend_settings('video_link'); ?></textarea>
                     </div>
 
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" style="    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;">
                         <div class="col-md-4">
                             <button type="button" class="btn btn-primary btn-block" onclick="checkRequiredFields()"><?php echo get_phrase('update_settings'); ?></button>
                         </div>
