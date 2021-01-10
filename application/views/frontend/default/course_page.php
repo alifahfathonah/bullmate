@@ -217,7 +217,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                 
                  <div class="description-box view-more-parent">
                     <div class="view-more" onclick="viewMore(this, 'hide')">+ <?php echo get_phrase('view_more'); ?></div>
-                    <div class="description-title"><?php echo get_phrase('Final Exan'); ?></div>
+                    <div class="description-title"><?php echo get_phrase('Final Exam'); ?></div>
                     <div class="description-content-wrap">
                         <div class="description-content">
                             <?php echo $course_details['final_exam']; ?>

@@ -113,6 +113,7 @@ class Login extends CI_Controller {
             $user_id = $this->user_model->register_user($data);
             if($this->input->post('type') == 2){
                 $this->user_model->register_user_bio($user_id);
+                 $this->email_model->send_email_become_an_instructor($data['email']);
             }
             // adding into mail chimp
              // Save user to the mailchimp

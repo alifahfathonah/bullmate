@@ -62,7 +62,7 @@ class User_model extends CI_Model {
     public function become_an_instructor($user_id = "") {
         $data['is_request'] = 1;
         $this->db->where('id', $user_id);
-        $this->db->update('users', $data);
+        return $this->db->update('users', $data);
     }
 
 

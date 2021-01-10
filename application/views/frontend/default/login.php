@@ -89,8 +89,10 @@
                                           $terms_page="/home/terms_and_condition";
                                       }
                                       ?>
-                                  <input required type="checkbox" name="terms" id="terms" checked >  I agree to the <a href="<?php echo site_url($page); ?>">privacy policy</a> along with <a href="<?php echo site_url($terms_page); ?>">terms & conditions</a> of BullMate
-                                  </div>
+                                       <input type="checkbox" name="subscribe" id="terms" checked > I am interested in receiving updates, announcements, deals and tips from Bullmate.<br>
+                                        <input required type="checkbox" name="terms" id="terms" checked> By signing up, you accept the policies, terms and conditions of Bullmate.
+                                  
+                                   </div>
                               </div>
                           </div>
                           <div class="content-update-box">

@@ -970,6 +970,19 @@ class Admin extends CI_Controller {
         }
 
         $this->user_model->user_switching($param1, $param2);
+
+        if($param1 == 'instructor'){
+              // send email once admin approve it
+        $user_email= $this->crud_model->get_instructor_bio_for_email($param2)->email;
+        $this->email_model->send_email_on_instructor_approved($user_email);
+        }else{
+           // send email once admin declined it
+        $user_email= $this->crud_model->get_instructor_bio_for_email($param2)->email;
+        $this->email_model->send_email_on_instructor_decline($user_email);
+        }
+        
+        
+        
         if ($param1 == 'student') {
             redirect(site_url('admin/instructors'), 'refresh');
         } else {

@@ -213,6 +213,10 @@ class Home extends CI_Controller {
 
     public function become_an_instructor() {
         $this->user_model->become_an_instructor($this->session->userdata('user_id'));
+        // send email once user request it
+        $user_email= $this->crud_model->get_instructor_bio_for_email($this->session->userdata('user_id'))->email;
+        $this->email_model->send_email_become_an_instructor($user_email);
+        
         $this->session->set_flashdata('flash_message', get_phrase('request_sent_successfully'));
         redirect(site_url('home'), 'refresh');
     }

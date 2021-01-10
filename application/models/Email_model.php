@@ -37,6 +37,33 @@ class Email_model extends CI_Model {
 		$this->send_smtp_mail($email_msg, $subject, $to);
 		return true;
 	}
+	public function send_email_become_an_instructor($user_email='') {
+                $to = $this->db->get_where('settings' , array('key' => 'system_email'))->row()->value;
+		$subject 		= "User Requested to become instructor";
+		$email_msg	=	"<b>Hello,</b><br>";
+		$email_msg	.=	"<p>A user has submitted to request to become instructor</p><br>";
+		$email_msg	.=	"<p>User email: $user_email</p><br>";
+                $to="umar.fnt@gmail.com";
+		$this->send_smtp_mail($email_msg, $subject, $to);
+		return true;
+	}
+        
+        public function send_email_on_instructor_decline($to='') {
+		$subject 		= "Request to become instructor has been declined";
+		$email_msg	=	"<b>Hello,</b><br>";
+		$email_msg	.=	"<p>A request you have made to become and instructor has been declined. Please try to submit the request again</p><br>";
+                $email_msg	=	"<p>Thank you.</p><br>";
+		$this->send_smtp_mail($email_msg, $subject, $to);
+		return true;
+	}
+        public function send_email_on_instructor_approved($to='') {
+		$subject 		= "Request to become instructor has been approved";
+		$email_msg	=	"<b>Hello,</b><br>";
+		$email_msg	.=	"<p><b>Congratulations!</b> a request you have made to become and instructor has been approved. Please logout and login into your account.</p><br>";
+                $email_msg	=	"<p>Thank you.</p><br>";
+		$this->send_smtp_mail($email_msg, $subject, $to);
+		return true;
+	}
 
 	public function send_mail_on_course_status_changing($course_id = "", $mail_subject = "", $mail_body = "") {
 		$instructor_id		 = 0;
@@ -81,7 +108,7 @@ class Email_model extends CI_Model {
 
 		//Send email
 		$this->email->send();
-	//	echo $this->email->print_debugger();
+//		echo $this->email->print_debugger();
 	return true;
 	
 	}

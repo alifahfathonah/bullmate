@@ -854,5 +854,8 @@
     "_show_achievements": " show achievements",
     "_earn_completion_certificates": " earn completion certificates",
     "show_achievements": "Show achievements",
-    "earn_completion_certificates": "Earn completion certificates"
+    "earn_completion_certificates": "Earn completion certificates",
+    "join_for_free_": "Join for free ",
+    "list_of_sections": "List of sections",
+    "sections_have_been_sorted": "Sections have been sorted"
 }
