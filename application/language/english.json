@@ -857,5 +857,18 @@
     "earn_completion_certificates": "Earn completion certificates",
     "join_for_free_": "Join for free ",
     "list_of_sections": "List of sections",
-    "sections_have_been_sorted": "Sections have been sorted"
+    "sections_have_been_sorted": "Sections have been sorted",
+    "add_additional_study_meterial": "Add additional study meterial",
+    "add_additional_study_material": "Add additional study material",
+    "add_assignment": "Add assignment",
+    "invalid_attachment": "Invalid attachment",
+    "select_type_of_meterial": "Select type of meterial",
+    "doc_file": "Doc file",
+    "ppt_file": "Ppt file",
+    "xls_file": "Xls file",
+    "meterial": "Meterial",
+    "invalid_lesson_provider": "Invalid lesson provider",
+    "select_type_of_assignment": "Select type of assignment",
+    "assignment": "Assignment",
+    "you_do_not_have_right_to_access_this_course": "You do not have right to access this course"
 }

@@ -87,7 +87,7 @@ class Login extends CI_Controller {
         $data['role_id']  = 2;
 
         if($this->input->post('type') == 2){
-            $data['type'] = 2;
+            $data['type'] = 3;
             $data['is_request'] = 1;
         }else{
             $data['type'] = 3;

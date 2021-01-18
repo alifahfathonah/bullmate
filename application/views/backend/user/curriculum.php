@@ -3,7 +3,10 @@
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/section_add/'.$course_id); ?>', '<?php echo get_phrase('add_new_section'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('add_section'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/lesson_add/'.$course_id); ?>', '<?php echo get_phrase('add_new_lesson'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('add_lesson'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/quiz_add/'.$course_id); ?>', '<?php echo get_phrase('add_new_quiz'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('add_quiz'); ?></a>
+        <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/add_additional_study_meterial/'.$course_id); ?>', '<?php echo get_phrase('add_additional_study_meterial'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('Add additional study material'); ?></a>
+        <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/add_assignment/'.$course_id); ?>', '<?php echo get_phrase('add_assignment'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('Add Assignment'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showLargeModal('<?php echo site_url('modal/popup/sort_section/'.$course_id); ?>', '<?php echo get_phrase('sort_sections'); ?>')"><i class="mdi mdi-sort-variant"></i> <?php echo get_phrase('sort_sections'); ?></a>
+        
     </div>
 
     <div class="col-xl-8">
@@ -11,6 +14,8 @@
             <?php
             $lesson_counter = 0;
             $quiz_counter   = 0;
+            $meterial_counter   = 0;
+            $assignment_counter   = 0;
             $sections = $this->crud_model->get_section('course', $course_id)->result_array();
             foreach ($sections as $key => $section):?>
             <div class="col-xl-12">
@@ -35,6 +40,10 @@
                                         <?php if ($lesson['lesson_type'] == 'quiz'): ?>
                                             <a href="javascript::" onclick="showLargeModal('<?php echo site_url('modal/popup/quiz_questions/'.$lesson['id']); ?>', '<?php echo get_phrase('manage_quiz_questions'); ?>')"><i class="mdi mdi-comment-question-outline"></i></a>
                                             <a href="javascript::" onclick="showAjaxModal('<?php echo site_url('modal/popup/quiz_edit/'.$lesson['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_quiz_information'); ?>')"><i class="mdi mdi-pencil-outline"></i></a>
+                                        <?php elseif($lesson['lesson_type'] == 'assignment'): ?>
+                                            <a href="javascript::" onclick="showAjaxModal('<?php echo site_url('modal/popup/edit_assignment/'.$lesson['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_lesson'); ?>')"><i class="mdi mdi-pencil-outline"></i></a>
+                                        <?php elseif($lesson['lesson_type'] == 'meterial'): ?>
+                                            <a href="javascript::" onclick="showAjaxModal('<?php echo site_url('modal/popup/edit_additional_study_meterial/'.$lesson['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_lesson'); ?>')"><i class="mdi mdi-pencil-outline"></i></a>
                                         <?php else: ?>
                                             <a href="javascript::" onclick="showAjaxModal('<?php echo site_url('modal/popup/lesson_edit/'.$lesson['id'].'/'.$course_id); ?>', '<?php echo get_phrase('update_lesson'); ?>')"><i class="mdi mdi-pencil-outline"></i></a>
                                         <?php endif; ?>
@@ -44,10 +53,29 @@
                                         <span class="font-weight-light">
                                             <?php
                                             if ($lesson['lesson_type'] == 'quiz') {
-                                                $quiz_counter++; // Keeps track of number of quiz
+                                                $quiz_counter++;
+                                                $counter=$quiz_counter; // Keeps track of number of quiz
                                                 $lesson_type = $lesson['lesson_type'];
-                                            }else {
+                                                $name=get_phrase('quiz');
+                                            }
+                                            elseif($lesson['lesson_type'] == 'meterial') {
                                                 $lesson_counter++; // Keeps track of number of lesson
+                                                $lesson_type = $lesson['attachment_type'];
+                                                $meterial_counter++;
+                                                $counter=$meterial_counter;
+                                                $name=get_phrase('meterial');
+                                            }
+                                            elseif($lesson['lesson_type'] == 'assignment') {
+                                                $lesson_counter++; // Keeps track of number of lesson
+                                                $lesson_type = $lesson['attachment_type'];
+                                                $assignment_counter++;
+                                                $counter=$assignment_counter;
+                                                $name=get_phrase('assignment');
+                                            }
+                                            else{
+                                                $lesson_counter++;
+                                                $counter=$lesson_counter; // Keeps track of number of lesson
+                                                $name=get_phrase('lesson');
                                                 if ($lesson['attachment_type'] == 'txt' || $lesson['attachment_type'] == 'pdf' || $lesson['attachment_type'] == 'doc' || $lesson['attachment_type'] == 'img') {
                                                     $lesson_type = $lesson['attachment_type'];
                                                 }else {
@@ -55,8 +83,9 @@
                                                 }
                                             }
                                             ?>
-                                            <img src="<?php echo base_url('assets/backend/lesson_icon/'.$lesson_type.'.png'); ?>" alt="" height = "16">
-                                            <?php echo $lesson['lesson_type'] == 'quiz' ? get_phrase('quiz').' '.$quiz_counter : get_phrase('lesson').' '.$lesson_counter; ?>
+                                            <img src="<?php echo base_url('assets/backend/lesson_icon/'.$lesson_type.'.png'); ?>" alt="ico" height = "16">
+                                            <?php echo $name.' '.$counter;
+                                            ?>
                                         </span>: <?php echo $lesson['title']; ?>
                                     </h5>
                                 </div>
