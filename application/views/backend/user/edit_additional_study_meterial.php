@@ -25,7 +25,7 @@
     <div class="form-group">
         <label for="section_id"><?php echo get_phrase('lesson_type'); ?></label>
         <select class="form-control select2" data-toggle="select2" name="lesson_type" id="lesson_type" required onchange="show_lesson_type_form(this.value)">
-            <option value=""><?php echo get_phrase('select_type_of_meterial'); ?></option>
+            <option value=""><?php echo get_phrase('select_type_of_Material'); ?></option>
             <option value="meterial-pdf" <?php if($lesson_details['attachment_type'] == 'pdf') echo 'selected'; ?>><?php echo get_phrase('pdf_file'); ?></option>
             <option value="meterial-doc" <?php if($lesson_details['attachment_type'] == 'doc') echo 'selected'; ?>><?php echo get_phrase('doc_file'); ?></option>
             <option value="meterial-ppt" <?php if($lesson_details['attachment_type'] == 'ppt') echo 'selected'; ?>><?php echo get_phrase('ppt_file'); ?></option>
@@ -104,7 +104,7 @@
         </div>
 
         <div class="text-center">
-            <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('add_additional_study_meterial'); ?></button>
+            <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('add_additional_study_Material'); ?></button>
         </div>
     </form>
     <script type="text/javascript">

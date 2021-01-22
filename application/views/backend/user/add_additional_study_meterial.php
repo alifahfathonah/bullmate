@@ -24,7 +24,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
     <div class="form-group">
         <label for="section_id"><?php echo get_phrase('lesson_type'); ?></label>
         <select class="form-control select2" data-toggle="select2" name="lesson_type" id="lesson_type" required onchange="show_lesson_type_form(this.value)">
-            <option value=""><?php echo get_phrase('select_type_of_meterial'); ?></option>
+            <option value=""><?php echo get_phrase('select_type_of_Material'); ?></option>
             <option value="meterial-pdf"><?php echo get_phrase('pdf_file'); ?></option>
             <option value="meterial-doc"><?php echo get_phrase('doc_file'); ?></option>
             <option value="meterial-ppt"><?php echo get_phrase('ppt_file'); ?></option>
@@ -102,7 +102,7 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
         </div>
 
         <div class="text-center">
-            <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('add_additional_study_meterial'); ?></button>
+            <button class = "btn btn-success" type="submit" name="button"><?php echo get_phrase('add_additional_study_Material'); ?></button>
         </div>
     </form>
     <script type="text/javascript">

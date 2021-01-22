@@ -138,7 +138,8 @@ class User_model extends CI_Model {
     }
 
     public function edit_user($user_id = "") { // Admin does this editing
-        $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
+//        $validity = $this->check_duplication('on_update', $this->input->post('email'), $user_id);
+        $validity=true;
         if ($validity) {
             $data['first_name'] = html_escape($this->input->post('first_name'));
             $data['last_name'] = html_escape($this->input->post('last_name'));

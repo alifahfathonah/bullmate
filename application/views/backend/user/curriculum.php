@@ -3,7 +3,7 @@
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/section_add/'.$course_id); ?>', '<?php echo get_phrase('add_new_section'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('add_section'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/lesson_add/'.$course_id); ?>', '<?php echo get_phrase('add_new_lesson'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('add_lesson'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/quiz_add/'.$course_id); ?>', '<?php echo get_phrase('add_new_quiz'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('add_quiz'); ?></a>
-        <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/add_additional_study_meterial/'.$course_id); ?>', '<?php echo get_phrase('add_additional_study_meterial'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('Add additional study material'); ?></a>
+        <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/add_additional_study_meterial/'.$course_id); ?>', '<?php echo get_phrase('add_additional_study_Material'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('Add additional study material'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showAjaxModal('<?php echo site_url('modal/popup/add_assignment/'.$course_id); ?>', '<?php echo get_phrase('add_assignment'); ?>')"><i class="mdi mdi-plus"></i> <?php echo get_phrase('Add Assignment'); ?></a>
         <a href="javascript::void(0)" class="btn btn-outline-primary btn-rounded btn-sm ml-1" onclick="showLargeModal('<?php echo site_url('modal/popup/sort_section/'.$course_id); ?>', '<?php echo get_phrase('sort_sections'); ?>')"><i class="mdi mdi-sort-variant"></i> <?php echo get_phrase('sort_sections'); ?></a>
         
@@ -63,7 +63,7 @@
                                                 $lesson_type = $lesson['attachment_type'];
                                                 $meterial_counter++;
                                                 $counter=$meterial_counter;
-                                                $name=get_phrase('meterial');
+                                                $name=get_phrase('Material');
                                             }
                                             elseif($lesson['lesson_type'] == 'assignment') {
                                                 $lesson_counter++; // Keeps track of number of lesson

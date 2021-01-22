@@ -58,7 +58,7 @@
                   <div class="user-dashboard-content w-100 register-form hidden">
                       <div class="content-title-box">
                           <div class="title"><?php echo get_phrase('registration_form'); ?></div>
-                          <div class="subtitle"><?php echo get_phrase('sign_up_and_start_learning'); ?>.</div>
+                          <div class="subtitle"><?php echo get_phrase('Create an account'); ?>.</div>
                       </div>
                       <form action="<?php echo site_url('login/register'); ?>" method="post">
                           <div class="content-box">
@@ -90,7 +90,7 @@
                                       }
                                       ?>
                                        <input type="checkbox" name="subscribe" id="terms" checked > I am interested in receiving updates, announcements, deals and tips from Bullmate.<br>
-                                        <input required type="checkbox" name="terms" id="terms" checked> By signing up, you accept the policies, terms and conditions of Bullmate.
+                                        <input required type="checkbox" name="terms" id="terms" checked> By signing up, you accept the <a href="<?=base_url().$page?>">policies</a>, <a href="<?= base_url().$terms_page?>">terms and conditions</a> of Bullmate.
                                   
                                    </div>
                               </div>

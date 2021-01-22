@@ -870,5 +870,7 @@
     "invalid_lesson_provider": "Invalid lesson provider",
     "select_type_of_assignment": "Select type of assignment",
     "assignment": "Assignment",
-    "you_do_not_have_right_to_access_this_course": "You do not have right to access this course"
+    "you_do_not_have_right_to_access_this_course": "You do not have right to access this course",
+    "create_an_account": "Create an account",
+    "material": "Material"
 }
