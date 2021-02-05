@@ -129,11 +129,34 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                                         $lessons = $this->crud_model->get_lessons('section', $section['id'])->result_array();
                                         $i = 0;
                                         foreach ($lessons as $lesson):
+                                            if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL):
+                                            $ico = "far fa-play-circle"; 
+                                            elseif($lesson['lesson_type'] == 'quiz'):
+                                            $ico = "far fa-question-circle"; 
+                                            else:
+                                            $tmp = explode('.', $lesson['attachment']);
+                                            $fileExtension = strtolower(end($tmp));
+                                            if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png' || $fileExtension == 'bmp' || $fileExtension == 'svg'):
+                                            $ico = "fas fa-camera-retro"; 
+                                            elseif ($fileExtension == 'pdf'):
+                                            $ico = "far fa-file-pdf";
+                                            elseif ($fileExtension == 'doc' || $fileExtension == 'docx'):
+                                            $ico = "far fa-file-word"; 
+                                            elseif ($fileExtension == 'pptx'):
+                                            $ico = "far fa-file-powerpoint-o "; 
+                                            elseif ($fileExtension == 'txt'):
+                                            $ico = "far fa-file-alt "; 
+                                            else:
+                                            $ico = "far fa fa-file ";
+                                            endif;
+                                            endif;
+                                            ?>
+                                            <?php
                                             ?>
                                             <li class="lecture has-preview">
-                                                <span class="lecture-title"><?php echo $lesson['title']; ?></span>
+                                                <span class="lecture-title"> <i class="<?=$ico?>"></i> <?php echo $lesson['title']; ?></span>
                                                 <span class="lecture-time float-right"><?php echo $lesson['duration']; ?></span>
-                                                <?php if ($i < 2) { ?>
+                                                <?php if ($i < 2 && 1==2) { ?>
                                                     <span class="lecture-preview float-right" onclick="loadpreviewmodel(<?= $lesson['id'] ?>, '<?= $lesson['title'] ?>',<?= $course_id ?>)">Preview</span> 
                                                 <?php } ?>
                                             </li>
@@ -334,7 +357,9 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                                     ?>
                                 </div>
                                 <div class="rating">
-                                    <?php for ($i = 1; $i < 6; $i++): ?>
+                                    <?php
+                                    for ($i = 1; $i < 6; $i++):
+                                        ?>
                                         <?php if ($i <= $average_ceil_rating): ?>
                                             <i class="fas fa-star filled" style="color: #f5c85b;"></i>
                                         <?php else: ?>
@@ -348,17 +373,23 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                         <div class="col-lg-9">
                             <div class="individual-rating">
                                 <ul>
-                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                    <?php
+                                    for ($i = 1; $i <= 5; $i++):
+                                        ?>
                                         <li>
                                             <div class="progress">
                                                 <div class="progress-bar" style="width: <?php echo $this->crud_model->get_percentage_of_specific_rating($i, 'course', $course_id); ?>%"></div>
                                             </div>
                                             <div>
                                                 <span class="rating">
-                                                    <?php for ($j = 1; $j <= (5 - $i); $j++): ?>
+                                                    <?php
+                                                    for ($j = 1; $j <= (5 - $i); $j++):
+                                                        ?>
                                                         <i class="fas fa-star"></i>
                                                     <?php endfor; ?>
-                                                    <?php for ($j = 1; $j <= $i; $j++): ?>
+                                                    <?php
+                                                    for ($j = 1; $j <= $i; $j++):
+                                                        ?>
                                                         <i class="fas fa-star filled"></i>
                                                     <?php endfor; ?>
 
@@ -401,7 +432,9 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                                         <div class="col-lg-8">
                                             <div class="review-details">
                                                 <div class="rating">
-                                                    <?php for ($i = 1; $i < 6; $i++): ?>
+                                                    <?php
+                                                    for ($i = 1; $i < 6; $i++):
+                                                        ?>
                                                         <?php if ($i <= $rating['rating']): ?>
                                                             <i class="fas fa-star filled" style="color: #f5c85b;"></i>
                                                         <?php else: ?>
@@ -657,6 +690,8 @@ if ($course_details['video_url'] != ""):
         player.pause();
     }
     function loadpreviewmodel(id, title, cid) {
+        location.href= "<?=site_url('home/lesson')?>/"+title+"/"+cid+"";
+        exit();
         $("#previewvideotitle").html(title);
         $("#samplepreviewmodel").modal('show');
         $.ajax({
